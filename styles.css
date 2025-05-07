@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+:root {
+    --primary-color: #4d8be6;
+    --primary-light: #19222e;
+    --secondary-color: #b0b8c4;
+    --text-color: #d0d8e2;
+    --text-muted: #94a1b3;
+    --bg-color: #111827;
+    --bg-light: #1a2436;
+    --bg-lighter: #1e293b;
+    --border-color: #2d3748;
+    --accent-color: #60a5fa;
+    --accent-hover: #93c5fd;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.resume {
+    max-width: 1000px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: var(--bg-light);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.name-title {
+    flex: 2;
+}
+
+.name {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 3px;
+    display: inline-block;
+}
+
+.title {
+    font-size: 14px;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.contact-info {
+    flex: 1;
+    text-align: right;
+    padding: 5px 0;
+}
+
+.contact-item {
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.contact-item span, .contact-item a {
+    margin-left: 8px;
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+}
+
+/* Исправление проблемы с размером иконок */
+.contact-icon img {
+    max-width: 16px;
+    max-height: 16px;
+    width: auto;
+    height: auto;
+}
+
+/* Main content layout */
+.main-content {
+    display: flex;
+    gap: 25px;
+}
+
+.left-column {
+    flex: 1;
+    padding-right: 25px;
+    border-right: 1px solid var(--border-color);
+}
+
+.right-column {
+    flex: 2;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: var(--primary-color);
+    padding-bottom: 6px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Education section */
+.education-item {
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.education-item:hover {
+    background-color: var(--bg-lighter);
+}
+
+.edu-name {
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 3px;
+}
+
+.edu-year {
+    color: var(--accent-color);
+    font-size: 12px;
+    margin-bottom: 3px;
+    font-weight: 500;
+}
+
+/* Skills section */
+.skills-list, .language-list {
+    list-style-type: none;
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+/* Общие стили для элементов списков */
+.skills-list li, .language-list li {
+    position: relative;
+    padding-left: 12px;
+    margin-bottom: 6px;
+}
+
+.skills-list li:before, .language-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Section styling */
+.section {
+    margin-bottom: 20px;
+}
+
+/* Experience items styling */
+.experience-item {
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 6px;
+    background-color: var(--bg-lighter);
+    border-left: 3px solid var(--primary-color);
+}
+
+.job-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 2px;
+    color: var(--primary-color);
+}
+
+.company {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.job-date {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.job-desc {
+    list-style-type: none;
+}
+
+.job-desc li {
+    margin-bottom: 6px;
+    position: relative;
+    padding-left: 12px;
+    line-height: 1.4;
+}
+
+.job-desc li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Summary section */
+.summary-section {
+    background-color: var(--primary-light);
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .resume {
+        padding: 12px;
+        margin: 5px;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    .contact-item {
+        justify-content: flex-start;
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .left-column {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding-right: 0;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+}
