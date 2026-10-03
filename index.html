@@ -87,9 +87,9 @@
                     <ul class="bullets">
                         <li>Introduced iOS simulators into UI testing alongside real devices: set up the farm machine, CI/CD pipelines and the test framework to run on them in parallel</li>
                         <li>Replaced the browser bot that imitated a live expert with direct API and WebSocket communication. About 95% of the bot was removed, tests no longer run a UI test inside a UI test, and chat and call scenarios became stable</li>
-                        <li>Stabilized the regression suite, which significantly raised the pass rate</li>
-                        <li>Split test runs into a release smoke suite and a full regression, which significantly reduced run time</li>
+                        <li>Stabilized the regression suite and split runs into a release smoke suite and a full regression, which significantly raised the pass rate and cut run time</li>
                         <li>Covered 125+ test cases in Swift / XCTest: chats, calls, payments and subscriptions, onboarding, push notifications</li>
+                        <li>Set up writing UI tests with AI (Claude Code): agents take a TestRail case, write the test with page objects and identifiers, and check it against the real code and the expected results</li>
                         <li>Built AI triage of failed runs on Claude Code: it groups failures by root cause and separates app bugs from test issues and flakes</li>
                     </ul>
                 </article>
