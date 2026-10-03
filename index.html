@@ -12,142 +12,219 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
-    <link rel="stylesheet" href="styles.css?v=6">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap">
+    <link rel="stylesheet" href="styles.css?v=7">
+    <script>
+        try {
+            var saved = localStorage.getItem('theme');
+            if (saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+        } catch (e) {}
+    </script>
 </head>
 <body>
     <div class="page">
-        <header class="header">
+        <header class="hero">
+            <div class="controls">
+                <button class="control" id="theme-toggle" type="button" aria-label="Switch light / dark theme" title="Switch theme">
+                    <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+                    <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <button class="control" id="print-btn" type="button">Save as PDF</button>
+            </div>
+
             <h1 class="name">Maksymchuk Vladimir</h1>
             <p class="title">Senior iOS Automation QA Engineer</p>
-            <ul class="contacts">
-                <li>Kyiv, Ukraine</li>
-                <li><a href="mailto:maksymchuk.vladimir@gmail.com">maksymchuk.vladimir@gmail.com</a></li>
-                <li><a href="https://t.me/vladimir_maksymchuk" target="_blank" rel="noopener">Telegram</a></li>
-                <li><a href="https://linkedin.com/in/vladimirmaksymchuk" target="_blank" rel="noopener">LinkedIn</a></li>
-            </ul>
-        </header>
-
-        <section class="section">
-            <h2>About</h2>
-            <p class="text">
+            <p class="lede">
                 I've been doing mobile test automation since 2022. At Ajax Systems I went from writing Appium
                 tests to leading the AQA team and looking after CI infrastructure of about 50 machines.
                 Since mid-2025 I've been responsible for UI test automation of the Nebula iOS app at OBRIO.
             </p>
-        </section>
 
-        <section class="section">
-            <h2>Experience</h2>
+            <ul class="contacts">
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                    Kyiv, Ukraine 🇺🇦
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                    <a href="mailto:maksymchuk.vladimir@gmail.com">maksymchuk.vladimir@gmail.com</a>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.5 2.8 11.7c-.9.4-.9 1.6.1 1.9l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.4 4.9 3.6c.6.4 1.4.1 1.6-.6l3.2-15.3c.2-1-.8-1.8-1.7-1.4z"/><path d="m7.5 15 10-7.5-7.6 9.1"/></svg>
+                    <a href="https://t.me/vladimir_maksymchuk" target="_blank" rel="noopener">t.me/vladimir_maksymchuk</a>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
+                    <a href="https://linkedin.com/in/vladimirmaksymchuk" target="_blank" rel="noopener">linkedin.com/in/vladimirmaksymchuk</a>
+                </li>
+            </ul>
+        </header>
 
-            <article class="entry">
-                <div class="when">Jul 2025 – present</div>
-                <div class="what">
-                    <h3>Senior iOS Automation QA Engineer</h3>
-                    <p class="org">OBRIO</p>
-                    <p class="context">
+        <div class="layout">
+            <main class="experience">
+                <h2>Experience</h2>
+
+                <article class="job">
+                    <div class="job-head">
+                        <div>
+                            <h3 class="job-title">Senior iOS Automation QA Engineer</h3>
+                            <div class="company">OBRIO</div>
+                        </div>
+                        <div class="date">July 2025 – Present</div>
+                    </div>
+                    <p class="job-intro">
                         UI test automation for Nebula, an iOS app with live chats and audio calls with experts,
                         subscriptions and in-app purchases.
                     </p>
-                    <ul>
+                    <ul class="bullets">
                         <li>Automated 125+ test cases in Swift / XCTest: chat, calls, payments, onboarding, push notifications</li>
                         <li>Moved expert-side steps from a browser bot to direct API calls. About 95% of the bot was removed, and tests no longer run a UI test inside a UI test</li>
                         <li>Scaled parallel runs across real iPhones and simulators (fastlane, GitLab CI)</li>
                         <li>Built AI triage of failed runs on Claude Code: it groups failures by root cause and separates app bugs from test issues and flakes</li>
                         <li>Smoke and regression on every release branch, with results in TestRail and Slack</li>
                     </ul>
-                </div>
-            </article>
+                </article>
 
-            <article class="entry">
-                <div class="when">Dec 2024 – Jun 2025</div>
-                <div class="what">
-                    <h3>Tech Lead of AQA Team Mobile / Desktop</h3>
-                    <p class="org">Ajax Systems</p>
-                    <ul>
-                        <li>Built a native Swift UI testing framework on XCTest for iOS apps</li>
-                        <li>Containerized test services with Docker</li>
-                        <li>CI/CD workflows on GitHub Actions</li>
+                <article class="job">
+                    <div class="job-head">
+                        <div>
+                            <h3 class="job-title">Ajax Systems</h3>
+                        </div>
+                        <div class="date">January 2022 – June 2025 <span>(3 years, 6 months)</span></div>
+                    </div>
+
+                    <ol class="roles">
+                        <li class="role">
+                            <div class="role-head">
+                                <h4>Tech Lead of AQA Team Mobile/Desktop</h4>
+                                <span class="date">December 2024 – June 2025 <span>(7 months)</span></span>
+                            </div>
+                            <ul class="bullets">
+                                <li>Designed and implemented containerized services with Docker for improved testing infrastructure</li>
+                                <li>Created and maintained CI/CD workflows using GitHub Actions YAML pipelines</li>
+                                <li>Architected advanced infrastructure solutions that improved test stability</li>
+                                <li>Designed and developed a native Swift UI testing framework with XCTest for iOS applications</li>
+                            </ul>
+                        </li>
+
+                        <li class="role">
+                            <div class="role-head">
+                                <h4>Lead of AQA Core Team Mobile/Desktop</h4>
+                                <span class="date">February 2024 – December 2024 <span>(10 months)</span></span>
+                            </div>
+                            <ul class="bullets">
+                                <li>Architected sophisticated Jenkins Groovy scripted pipelines for efficient test distribution and execution</li>
+                                <li>Developed a reusable shared library that enhanced maintainability across CI/CD pipelines</li>
+                                <li>Orchestrated and managed ~50 machines (Linux/Windows/macOS) as Jenkins/GitHub Actions agents</li>
+                                <li>Developed Ansible scripts for managing machines and implemented these scripts in pipelines</li>
+                                <li>Designed scalable infrastructure for parallel testing on emulators and simulators</li>
+                                <li>Implemented an Appium device farm solution that increased Android test stability and emulator count on the same machine scope</li>
+                                <li>Extensive experience in deploying and maintaining self-hosted Jenkins</li>
+                            </ul>
+                        </li>
+
+                        <li class="role">
+                            <div class="role-head">
+                                <h4>Team Lead Mobile AQA</h4>
+                                <span class="date">May 2023 – February 2024 <span>(9 months)</span></span>
+                            </div>
+                            <ul class="bullets">
+                                <li>Implemented internet speed verification algorithms and wired internet for Android/iOS real devices via USB</li>
+                                <li>Improved Allure service for storing reports on AWS S3</li>
+                                <li>CI/CD stability improvements and optimized declarative pipelines</li>
+                                <li>Architected the transfer of UI testing from real devices to emulators and simulators, implemented it in CI/CD and the test framework, and set up all farm machines for it</li>
+                                <li>Effectively led team communications, facilitated technical meetings, conducted interviews, and provided comprehensive support to QA engineers and developers</li>
+                                <li>Interviewed candidates for QA Automation Engineer position</li>
+                            </ul>
+                        </li>
+
+                        <li class="role">
+                            <div class="role-head">
+                                <h4>QA Automation Engineer</h4>
+                                <span class="date">January 2022 – May 2023 <span>(1 year, 4 months)</span></span>
+                            </div>
+                            <ul class="bullets">
+                                <li>Created comprehensive automated test suites for Android and iOS applications leveraging Appium with UiAutomator2 and XCUITest drivers</li>
+                                <li>Suggested and implemented precise UI color validation</li>
+                                <li>Created an “Unknown” status classification in Allure for Expected Fail tests</li>
+                                <li>Migrated AOS testing from macOS to Linux and implemented this flow in CI/CD</li>
+                                <li>Developed a USB port reset mechanism which increased phone uptime</li>
+                                <li>Developed integration between test execution and reporting systems (TestRail and Allure) for improved visibility and traceability</li>
+                                <li>Developed a custom Allure service for serving Allure reports on local machines and merging them from different machines</li>
+                                <li>Collaborated closely with development teams to identify and resolve application issues early in the development lifecycle by autotesting PRs with UI tests</li>
+                                <li>Developed and maintained a mock server, which fully replaced the real server for UI testing</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </article>
+            </main>
+
+            <aside class="sidebar">
+                <section>
+                    <h2>Skills</h2>
+                    <div class="skill-group">
+                        <h3>iOS testing</h3>
+                        <p>Swift, XCTest, XCUITest, StoreKit Testing</p>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Python</h3>
+                        <p>Appium, Pytest, FastAPI, scripts</p>
+                    </div>
+                    <div class="skill-group">
+                        <h3>CI/CD</h3>
+                        <p>GitLab CI, GitHub Actions, Jenkins (Groovy), fastlane</p>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Infrastructure</h3>
+                        <p>Linux, Proxmox, Docker, Ansible, AWS S3</p>
+                    </div>
+                    <div class="skill-group">
+                        <h3>Tools &amp; process</h3>
+                        <p>Git, TestRail, Allure, Jira, Claude Code, Agile Project Management</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Education</h2>
+                    <div class="edu">
+                        <div class="date">2018 – 2022</div>
+                        <div class="edu-title">Bachelor's Degree, Computer Systems and Technologies</div>
+                        <div class="edu-place">Igor Sikorsky Kyiv Polytechnic Institute, Kyiv, Ukraine</div>
+                    </div>
+                    <div class="edu">
+                        <div class="date">2014 – 2018</div>
+                        <div class="edu-title">Kyiv Physics and Mathematics Lyceum №&nbsp;142</div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Languages</h2>
+                    <ul class="langs">
+                        <li><span>Ukrainian</span><span>Native</span></li>
+                        <li><span>Russian</span><span>Native</span></li>
+                        <li><span>English</span><span>Intermediate</span></li>
                     </ul>
-                </div>
-            </article>
-
-            <article class="entry">
-                <div class="when">Feb 2024 – Dec 2024</div>
-                <div class="what">
-                    <h3>Lead of AQA Core Team Mobile / Desktop</h3>
-                    <p class="org">Ajax Systems</p>
-                    <ul>
-                        <li>Managed about 50 Linux, Windows and macOS machines as Jenkins and GitHub Actions agents, with Ansible</li>
-                        <li>Jenkins scripted pipelines in Groovy and a shared library for them</li>
-                        <li>Parallel runs on emulators and simulators, Appium device farm for Android</li>
-                        <li>Deployed and maintained self-hosted Jenkins</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="entry">
-                <div class="when">May 2023 – Feb 2024</div>
-                <div class="what">
-                    <h3>Team Lead Mobile AQA</h3>
-                    <p class="org">Ajax Systems</p>
-                    <ul>
-                        <li>Moved UI tests from real devices to emulators and simulators, including CI and farm setup</li>
-                        <li>Wired internet for real Android and iOS devices over USB, internet speed checks</li>
-                        <li>Allure reports stored on AWS S3</li>
-                        <li>Led the team, ran tech meetings, interviewed QA Automation candidates</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="entry">
-                <div class="when">Jan 2022 – May 2023</div>
-                <div class="what">
-                    <h3>QA Automation Engineer</h3>
-                    <p class="org">Ajax Systems</p>
-                    <ul>
-                        <li>Android and iOS test suites with Appium (UiAutomator2, XCUITest)</li>
-                        <li>Mock server that fully replaced the real backend for UI tests</li>
-                        <li>TestRail and Allure integration, own Allure service to merge reports from several machines</li>
-                        <li>Moved Android testing from macOS to Linux</li>
-                        <li>UI tests running on developers' pull requests</li>
-                    </ul>
-                </div>
-            </article>
-        </section>
-
-        <section class="section">
-            <h2>Skills</h2>
-            <dl class="rows">
-                <div class="row"><dt>iOS testing</dt><dd>Swift, XCTest, XCUITest, StoreKit Testing</dd></div>
-                <div class="row"><dt>Other</dt><dd>Python (Pytest, Appium, FastAPI), Groovy, Ruby</dd></div>
-                <div class="row"><dt>CI/CD</dt><dd>GitLab CI, GitHub Actions, Jenkins, fastlane</dd></div>
-                <div class="row"><dt>Infrastructure</dt><dd>Docker, Linux, Proxmox, Ansible, AWS S3</dd></div>
-                <div class="row"><dt>Tools</dt><dd>TestRail, Allure, Jira, Slack API, Claude Code</dd></div>
-            </dl>
-        </section>
-
-        <section class="section">
-            <h2>Education</h2>
-            <div class="entry">
-                <div class="when">2018 – 2022</div>
-                <div class="what">
-                    <h3>Bachelor's degree, Computer Systems and Technologies</h3>
-                    <p class="org">Igor Sikorsky Kyiv Polytechnic Institute</p>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="when">2014 – 2018</div>
-                <div class="what">
-                    <h3>Kyiv Physics and Mathematics Lyceum No.&nbsp;142</h3>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Languages</h2>
-            <p class="text">Ukrainian and Russian (native), English (intermediate)</p>
-        </section>
+                </section>
+            </aside>
+        </div>
     </div>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+            document.getElementById('theme-toggle').addEventListener('click', function () {
+                var current = root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light');
+                var next = current === 'dark' ? 'light' : 'dark';
+                root.setAttribute('data-theme', next);
+                try { localStorage.setItem('theme', next); } catch (e) {}
+            });
+
+            document.getElementById('print-btn').addEventListener('click', function () {
+                window.print();
+            });
+        })();
+    </script>
 </body>
 </html>
